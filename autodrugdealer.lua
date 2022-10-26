@@ -1,8 +1,8 @@
 script_name("Auto Drug Dealer")
 script_author("Visage")
 
-local script_version = 1.1
-local script_version_text = '1.1'
+local script_version = 1.11
+local script_version_text = '1.11'
 
 require"lib.moonloader"
 require"lib.sampfuncs"
@@ -181,10 +181,10 @@ function update_script(noupdatecheck)
 		update_version = update_text:match("version: (.+)")
 		if update_version ~= nil then
 			if tonumber(update_version) > script_version then
-				sampAddChatMessage(string.format("{DFBD68}[%s]{FFFFFF} New version found! The update is in progress.", script.this.name), 10944256)
+				sampAddChatMessage(string.format("{DFBD68}[%s]{FFFFFF} New version found! The update is in progress.", script.this.name))
 				downloadUrlToFile(script_url, script_path, function(id, status)
 					if status == dlstatus.STATUS_ENDDOWNLOADDATA then
-						sampAddChatMessage(string.format("{DFBD68}[%s]{FFFFFF} The update was successful!", script.this.name), 10944256)
+						sampAddChatMessage(string.format("{DFBD68}[%s]{FFFFFF} The update was successful!", script.this.name))
 						lua_thread.create(function()
 							wait(500) 
 							thisScript():reload()
@@ -193,7 +193,7 @@ function update_script(noupdatecheck)
 				end)
 			else
 				if noupdatecheck then
-					sampAddChatMessage(string.format("{DFBD68}[%s]{FFFFFF} No new version found.", script.this.name), 10944256)
+					sampAddChatMessage(string.format("{DFBD68}[%s]{FFFFFF} No new version found.", script.this.name))
 				end
 			end
 		end
