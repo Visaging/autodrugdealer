@@ -30,6 +30,7 @@ local adrd = inicfg.load({
 function main()
 	if not isSampLoaded() or not isSampfuncsLoaded() then return end
     while not isSampAvailable() do wait(100) end
+	update_script(false)
 	sampRegisterChatCommand("ddsetid", cmd1)
 	sampRegisterChatCommand("ddsetproduct", cmd2)
 	sampRegisterChatCommand("ddtog", cmd3)
