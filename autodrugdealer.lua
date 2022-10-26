@@ -1,16 +1,16 @@
 script_name("Auto Drug Dealer")
 script_author("Visage")
 
-local script_version = 1
-local script_version_text = '1'
+local script_version = 1.1
+local script_version_text = '1.1'
 
 require"lib.moonloader"
 require"lib.sampfuncs"
 local https = require 'ssl.https'
 local dlstatus = require('moonloader').download_status
 local script_path = thisScript().path
-local script_url = "https://raw.githubusercontent.com/Visaging/Cruise-Control-Remaster/main/Cruise_Control_Remaster.lua"
-local update_url = "https://raw.githubusercontent.com/Visaging/Cruise-Control-Remaster/main/Cruise_Control_Remaster.txt"
+local script_url = "https://raw.githubusercontent.com/Visaging/autodrugdealer/main/autodrugdealer.lua"
+local update_url = "https://raw.githubusercontent.com/Visaging/autodrugdealer/main/autodrugdealer.txt"
 local sampev = require "lib.samp.events"
 local inicfg = require 'inicfg'
 
