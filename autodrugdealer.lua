@@ -1,8 +1,8 @@
 script_name("Auto Drug Dealer")
 script_author("Visage")
 
-local script_version = 1.11
-local script_version_text = '1.11'
+local script_version = 1.12
+local script_version_text = '1.12'
 
 require"lib.moonloader"
 require"lib.sampfuncs"
@@ -85,7 +85,7 @@ end
 function cmd2(args)
     args = string.lower(args)
     if #args == 0 then
-		sampAddChatMessage("USAGE: /setproduct [Name]", -1)
+		sampAddChatMessage("USAGE: /ddsetproduct [Name]", -1)
 		sampAddChatMessage("{9E9E9E}Available names: Pot, Crack", -1)
     elseif (args == "pot") then
         adrd.main.ddproduct = "pot"
@@ -151,14 +151,13 @@ function sampev.onServerMessage(clr, msg)
             if msgv == msg:match("%(type /accept pot%) to buy") then
                 sampSendChat("/accept pot")
                 adrd.main.ddaccepted = adrd.main.ddaccepted + 1
-                sampAddChatMessage("Deals accepted: {44bbff}"..adrd.main.ddaccepted, -1)
-                return false
+                sampAddChatMessage(string.format("You have now accepted: {44bbff}%s{ffffff} deals.", adrd.main.ddaccepted), -1)
             elseif msgv == msg:match("%(type /accept crack%) to buy") then
                 sampSendChat("/accept crack")
                 adrd.main.ddaccepted = adrd.main.ddaccepted + 1
-                sampAddChatMessage("Deals accepted: {44bbff}"..adrd.main.ddaccepted, -1)
-                return false
+                sampAddChatMessage(string.format("You have now accepted: {44bbff}%s{ffffff} deals.", adrd.main.ddaccepted), -1)
             end
+			return false
         end
         if msg:find("* You offered.+to buy 1 gram%(s%) of.+for $1") then
             return false
@@ -168,7 +167,7 @@ function sampev.onServerMessage(clr, msg)
         end
         if msg:find("* .+has bought your 1 gram%(s%), the $1 was added to your money") then
             adrd.main.ddoffered = adrd.main.ddoffered + 1
-            sampAddChatMessage("Deals offered: {44bbff}"..adrd.main.ddoffered, -1)
+            sampAddChatMessage(string.format("You have now offered: {44bbff}%s{ffffff} deals.", adrd.main.ddoffered), -1)
             return false
         end
         SaveIni()
