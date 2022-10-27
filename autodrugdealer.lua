@@ -1,8 +1,8 @@
 script_name("Auto Drug Dealer")
 script_author("Visage")
 
-local script_version = 1.12
-local script_version_text = '1.12'
+local script_version = 1.13
+local script_version_text = '1.13'
 
 require"lib.moonloader"
 require"lib.sampfuncs"
@@ -151,11 +151,11 @@ function sampev.onServerMessage(clr, msg)
             if msgv == msg:match("%(type /accept pot%) to buy") then
                 sampSendChat("/accept pot")
                 adrd.main.ddaccepted = adrd.main.ddaccepted + 1
-                sampAddChatMessage(string.format("You have now accepted: {44bbff}%s{ffffff} deals.", adrd.main.ddaccepted), -1)
+                sampAddChatMessage(string.format("You have now accepted {44bbff}%s{ffffff} deals.", adrd.main.ddaccepted), -1)
             elseif msgv == msg:match("%(type /accept crack%) to buy") then
                 sampSendChat("/accept crack")
                 adrd.main.ddaccepted = adrd.main.ddaccepted + 1
-                sampAddChatMessage(string.format("You have now accepted: {44bbff}%s{ffffff} deals.", adrd.main.ddaccepted), -1)
+                sampAddChatMessage(string.format("You have now accepted {44bbff}%s{ffffff} deals.", adrd.main.ddaccepted), -1)
             end
 			return false
         end
@@ -167,7 +167,7 @@ function sampev.onServerMessage(clr, msg)
         end
         if msg:find("* .+has bought your 1 gram%(s%), the $1 was added to your money") then
             adrd.main.ddoffered = adrd.main.ddoffered + 1
-            sampAddChatMessage(string.format("You have now offered: {44bbff}%s{ffffff} deals.", adrd.main.ddoffered), -1)
+            sampAddChatMessage(string.format("You have now offered {44bbff}%s{ffffff} deals.", adrd.main.ddoffered), -1)
             return false
         end
         SaveIni()
